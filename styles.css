@@ -85,21 +85,38 @@ body{
 
 /* Set the section titles styling but make sure if you play with the numbers to leave good room to separate it from the content of the section */
 .resume .title{
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 900;
+  color: #fff;
+  margin-bottom: 15px;
 }
 
 /* Since we have a list of skills that we want in a group we can accomplish this with flex box and setting the flex-wrap to wrap and get our even spacing without padding using
 justify content space between and we wont this container to take up 100% of its width so that when we style the icons we can set them to 33% and they will flow 3 in a row automatically*/
-
+.skills ul{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
 
 /* Now we can add some padding to the icons so that they aren't touching each other looking like one big blob don't forget about that width with needs to be set to 33% so that we get
 our 3 icons on the row*/
-
-
+.skills ul li{
+  padding: 0 5px 10px;
+  width: 33.32%;
+  height: 85px;
+}
 
 /* Create a background for each skill item image and text to sit on top of*/
+.skills ul li .skill_item{
+  background: #212329;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  text-align:center;
+  padding: 15px 10px;
+}
 
 
 
@@ -114,7 +131,22 @@ to show up as its own image inside our skill icon box we created */
 
 /* Because of the dirty work around we will need to position icons individually to get them to show properly */
 /* I apologize for this but I could not find any pngs that were about the same styling to go along with each other */
-
+.skills ul li .skill_item.css .icon{
+  /* important tag tells css you want to override everthing and add this styling */
+  background-position: 0 -26px !important;
+}
+.skills ul li .skill_item.js .icon{
+  background-position: 0 -52px;
+}
+.skills ul li .skill_item.photoshop .icon{
+  background-position: 0 -79px;
+}
+.skills ul li .skill_item.angular .icon{
+  background-position: 0 -101px;
+}
+.skills ul li .skill_item.react .icon{
+  background-position: 0 -125px;
+}
 
 
 
@@ -122,48 +154,100 @@ to show up as its own image inside our skill icon box we created */
 /* We can set the tabs into their own group using flex-box and by default they will flex into a row and we don't need to use flex direction */
 /* We also want the tabs to take up 100% of their parent container just like we have been doing for each component thus far. That way when we set the width
 for the individual tabs to 33% they will stay in a row together*/
-
+.full_info_wrap .tabs ul{
+  display: flex;
+  width: 100%;
+  height: 36px;
+  border-radius: 3px;
+}
 
 /* Style the individual li's (tabs) so that they all take up 33% of the parent element we just set to 100% of its parent above*/
 /* One thing to help when creating tabs in this manner is to give them a subtle border on the side to separate them from each other
 we also want to set the cursor to pointer to ensure that it shows the user that you can click here for an action */
-
+.full_info_wrap .tabs ul li{
+  padding: 10px 15px;
+  width: 33.34%;
+  height: 34px;
+  text-align: center;
+  border-right: 1px solid #dfe4e6;
+  background: #3700b3;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
 
 /* Since we don't need the same styling on ever tabs we can use the psuedo class last-child to target the last tab in our lo group and style it so that it resembles more of an end to the list
 and not possibly confuse the user and think oh maybe I need to click and drag or tap and drag left or right for more options*/
-
+.full_info_wrap .tabs ul li:last-child{
+  border-right: 0;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
 
 /* Set the active state and the hover state for the tabs*/
-
+.full_info_wrap .tabs ul li.active,
+.full_info_wrap .tabs ul li:hover{
+  background: #018786;
+  color: #fff;
+}
 
 /* Set basic styling of the full info container and set the over flow to auto so that a scroll bar will appear in all browsers (not really needed but good practice)*/
-
+.full_info{
+  padding-top: 15px;
+  height: 295px;
+  overflow: auto;
+}
 
 /*Set padding for the text inside the full_info parent container*/
-
+.info_wrap{
+  padding-left: 5px;
+}
 
 /* Add bottom margin to the individual li's inside the content of the tab */
-
+.info_wrap ul li{
+  margin-bottom: 10px;
+}
 
 /* Again we don't always need the same styling for every element in our list or even in a div so we can use :lest-child again to represent more of an ending to our list */
-
+.info_wrap ul li:last-child{
+  margin-bottom: 0;
+}
 
 /* Set the styling for our list groups subtitles*/
-
+.info_wrap .sub_title{
+  font-size: 16px;
+  font-weight: 600;
+  color: #7377ff;
+}
 
 /* Set padding between the subtitle and the list items themselves and push them to the right some to make it appear as a second list items*/
-
+.info_wrap .info_item{
+  padding-top: 10px;
+  padding-left: 15px;
+}
 
 /* Style the list title */
-
+.info_wrap .info_item .info_title{
+  font-weight: 600;
+  margin-bottom: 5px;
+}
 
 /* Set font size of list items */
-
+.info_wrap .info_item .data{
+  font-size: 12px;
+}
 
 /* Set the list items span to inline block so that its on the same level and the list item category*/
-
+.contact .info_wrap ul li span{
+  display: inline-block;
+}
 
 /* Set the width of the contact list items so that they don't go outside their container causing a side scroll*/
-
+.contact .info_wrap ul li span.info_q{
+  width: 150px;
+}
 
 /* Set font weight for the contact answers */
+.contact .info_wrap ul li span.info_a{
+  font-weight: 600;
+}
